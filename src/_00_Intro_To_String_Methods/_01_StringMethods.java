@@ -1,5 +1,7 @@
 package _00_Intro_To_String_Methods;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 
 /*
@@ -34,13 +36,24 @@ public class _01_StringMethods {
 
     // Given Strings s1 and s2, return the longer String
     public static String longerString(String s1, String s2) {
-        return null;
+    	int q1 = s1.length();
+    	int q2 = s2.length();
+    	if (q1>q2) {
+    		return s1;
+    	}
+        return s2;
     }
 
     // If String s contains the word "underscores", change all of the spaces
     // to underscores
     public static String formatSpaces(String s) {
-        return null;
+    	String sub = "underscores";
+         String removedSubstring = s.replace(sub, "");
+        int  num = (s.length() - removedSubstring.length()) / sub.length();
+    	if(num >= 1) {
+    		s.replace(' ', '_');
+    	}
+        return s;
     }
 
     // Return the name of the person whose LAST name would appear first if they
@@ -48,12 +61,38 @@ public class _01_StringMethods {
     // You cannot assume there are no extra spaces around the name, but you can
     // assume there is only one space between the first and last name
     public static String lineLeader(String s1, String s2, String s3) {
-        return null;
+       s1.trim();
+       s2.trim();
+       s3.trim();
+       int n1 =s1.indexOf(' ');
+       int n2 =s2.indexOf(' ');
+       int n3 =s3.indexOf(' ');
+    	char c1 = s1.charAt(n1+1);
+        char c2 = s2.charAt(n2+1);
+        char c3 = s3.charAt(n3+1);
+        if(c1<c2 && c1<c3){
+        	return s1;
+        }
+        else if(c2<c1 && c2<c3){
+        	return s2;
+        }
+    	return s3;
     }
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
-        return 0;
+    	int num = 0;
+    	for (int j = 0; j < s.length(); j++) {
+    		if (Character.isDigit(s.charAt(j))) {
+    			char[] strChars = new char[1];
+    			strChars[0]=s.charAt(j);
+    			String q1 = Arrays.toString(strChars);
+    			int q2 = Integer.parseInt(q1);
+    			num+=q2;
+    		}
+    		
+		}
+        return num;
     }
 
     // Return the number of times String substring appears in String s
