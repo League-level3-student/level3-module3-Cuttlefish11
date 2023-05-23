@@ -78,16 +78,13 @@ public class _01_StringMethods {
     	char c1 = t1.charAt(n1+1);
         char c2 = t2.charAt(n2+1);
         char c3 = t3.charAt(n3+1);
-        if(c1<c2 && c1<c3){
-        	String q1=s1;
-        	return q1;
+        if(c1<=c2 && c1<=c3){
+        	return t1;
         }
-        else if(c2<c1 && c2<c3){
-        	String q2=s2;
-        	return q2;
+        else if(c2<=c1 && c2<=c3){
+        	return t2;
         }
-        String q3=s3;
-    	return q3;
+    	return t3;
     }
 
     // Return the sum of all numerical digits in the String
@@ -123,7 +120,8 @@ public class _01_StringMethods {
     	byte[] b = s.getBytes();
     	byte b2 = (byte) key;
     	String q = Utilities.encrypt(b, b2);
-        return q;
+		return q;
+
     }
 
     // Call Utilities.decrypt at the bottom of this file to decrypt the
@@ -151,7 +149,12 @@ public class _01_StringMethods {
     // occurrence of String substring and the final occurrence
     // You can assume that substring will appear at least twice
     public static int distance(String s, String substring) {
-        return 0;
+    	
+    	int i=s.indexOf(substring);
+        int i2=s.lastIndexOf(substring);
+       int answer = i2-(i+substring.length());
+        return answer;
+
     }
 
     // Return true if String s is a palindrome
