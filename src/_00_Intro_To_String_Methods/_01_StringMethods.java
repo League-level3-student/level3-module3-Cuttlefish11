@@ -161,25 +161,41 @@ public class _01_StringMethods {
     // palindromes are words or phrases are read the same forward as backward.
     // HINT: ignore/remove all punctuation and spaces in the String
     public static boolean palindrome(String s) {
-    	s.trim();
-    	s.replace(" ", "");
-    	s.replace(",", "");
-    	s.replace(".", "");
-    	s.replace("!", "");
-    	s.replace("?", "");
-    	s.replace("-", "");
-    	s.replace(":", "");
-    	s.toLowerCase();
-    	String sub1 = s.substring(0, s.length()/2);
-    	String sub2 = s.substring(s.length()/2, s.length());
-    	if(sub1==sub2) {
-        return true;
-    	}
-		return false;
+    	String s2 = "";
+    	s2 = s.trim();
+    	s2 = s2.replace(" ", "");
+    	s2=s2.replace(",", "");
+    	s2=s2.replace(".", "");
+    	s2=s2.replace("!", "");
+    	s2=s2.replace("?", "");
+    	s2=s2.replace("-", "");
+    	s2=s2.replace(":", "");
+    	s2 = s2.toLowerCase();
+    	System.out.println(s2);
+    	//String sub1 = s.substring(0, s.length()/2);
+    	//String sub2 = s.substring(s.length()/2, s.length());
+    	for (int i = 0; i < (s2.length()/2); i++) {
+			if (s2.charAt(i) != s2.charAt(s2.length()-1-i)) {
+				return false;
+			}
     }
+    	return true;
+    	/*int up = 0;
+    	int down =s.length()-1;
+    	for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == s.charAt(s.length()-1-i)) {
+				up++;
+				down--;
+			}
+		}
+    	if(up==down || up+1==down|| up-1==down) {
+    		return true;
+    	}
+		return false;*/
+    	
 }
 
-class Utilities {
+static class Utilities {
     // This basic encryption scheme is called single-byte xor. It takes a
     // single byte and uses exclusive-or on every character in the String.
     public static String encrypt(byte[] plaintext, byte key) {
@@ -196,4 +212,5 @@ class Utilities {
         }
         return new String(b);
     }
+}
 }
