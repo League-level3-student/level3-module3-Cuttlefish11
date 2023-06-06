@@ -22,6 +22,8 @@ public class _03_StringBuilder {
     }
     
     public static String delete(String str, int startIndex, int endIndex) {
-        return null;
+    	StringBuilder builder = new StringBuilder(str);
+    	String s = builder.delete(startIndex, endIndex).toString();
+        return s;
     }
 }
